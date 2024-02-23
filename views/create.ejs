@@ -1,0 +1,52 @@
+<%- include("partials/header.ejs") %>
+
+<body>
+  <div class="container col-md-8">
+    <!--  creat blog - header -->
+    <div class="py-5 text-center">
+      <img
+        class="d-block mx-auto mb-4"
+        src="images/pencil-square.svg"
+        alt=""
+        width="72"
+        height="57"
+      />
+      <h2>Create a new blog post</h2>
+      <p class="lead">
+        Below is an example form built entirely with Bootstrap’s form controls.
+        Each required form group has a validation state that can be triggered by
+        attempting to submit the form without completing it.
+      </p>
+    </div>
+
+    <!-- Blog form -->
+
+    <div class="bg-body p-5 rounded">
+      <form action="/submit" method="POST">
+        <div class="mb-3">
+          <label for="blogTitle" class="form-label">Blog title</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Blog title..."
+            name="blogTitle"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="blogContent" class="form-label">Blog content</label>
+          <textarea
+            class="form-control"
+            placeholder="Enter content here..."
+            name="blogContent"
+            rows="3"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-dark">Post blog</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+<%- include("partials/footer.ejs") %>

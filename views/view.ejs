@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+
+
+
+
+
+
+
+<article class="blog-post container mt-5">
+    <h2 class="display-5 link-body-emphasis mb-1">
+      <%=createdPosts[postId].blogTitle%>
+    </h2>
+    <p class="blog-post-meta"><%=createdPosts[postId].blogDate%></p>
+  
+    <p><%=createdPosts[postId].blogContent%></p>
+  </article>
+  
+  <%- include("partials/footer.ejs") %>

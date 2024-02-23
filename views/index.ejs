@@ -1,0 +1,51 @@
+<%- include("partials/header.ejs") %>
+
+
+<body>
+  <div class="container">
+    <div class="row flex-lg align-items-center p-4 p-md-5 my-4 bg-body rounded overflow-hidden text-body-emphasis">
+      <div class="col-lg-7 pe-4">
+        <h1 class="display-5">Welcome to my daily journal</h1>
+        <p class="lead my-3">Here you can read, create and delete blogs. So tell me, what have you been up to? I'd love to hear all about your different adventures</p>
+      </div>
+
+      <div class="col-12 col-lg-5">
+        <img src="images/blog_image.jpg" alt="" class="d-block mx-lg-auto img-fluid" width="600" height="400" />
+      </div>
+    </div>
+
+    <div class="row">
+      <% if (locals.createdPosts.length) {%> 
+        <% createdPosts.forEach((blogPost) => { %>
+            <div class="col-md-6">
+                <div class="row g-0 bg-body border rounded flex-md-row mb-4 shadow-sm">
+                <div class="col p-4 d-flex flex-column">
+                    <h3 class="mb-1"><%=blogPost.blogTitle%></h3>
+                    <div class="mb-3 text-body-secondary"><%=blogPost.blogDate%></div>
+                    <p class="card-text mb-3"><%=blogPost.blogContent.substring(0, 150) + "..."%></p>
+                    <a href="/view/<%= createdPosts.indexOf(blogPost) %>" class="icon-link icon-link-hover me-auto"><%=blogPost.blogLink%></a>
+
+
+
+                    <!-- <div class="d-flex justify-content-between">
+                        <a href="/view" class="icon-link icon-link-hover me-auto">Continue reading</a>
+                        <a href="/view" class="link-danger icon-link icon-link-hover">delete</a>
+                    </div> -->
+                </div>
+                </div>
+            </div>
+        <% }); %> 
+      
+      <% } else { %>
+
+      <!-- empty state -->
+      <div class="p-5 text-center bg-body-tertiary rounded-3">
+        <h3 class="text-body-emphasis">No Blog Post Yet</h3>
+        <p class="lead mt-3">Creat your first blog post by clicking<strong>"Create post"</strong> above.</p>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</body>
+
+<%- include("partials/footer.ejs") %>
